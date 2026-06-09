@@ -1,10 +1,13 @@
 <div class="course-card">
         <div class="course-title">
-            {{ title }}
+            {{ course().title }}
         </div>
         <img width="300" alt="Angular Logo"
-             src="{{ iconUrl }}">
+             src="{{ course().iconUrl }}">
         <div class="course-description">
-           {{ description }}
+           {{ course().description }}
         </div>
+        <button (click)="courseSelected()">
+            View Course
+        </button>
     </div>

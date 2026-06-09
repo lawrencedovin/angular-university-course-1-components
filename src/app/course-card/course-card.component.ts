@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { Course } from '../model/course';
+import { INITIALIZE_COURSE } from '../../db-data';
 
 @Component({
   selector: 'course-card',
@@ -7,10 +9,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './course-card.component.css',
 })
 export class CourseCardComponent {
-  @Input()
-  title: string = '';
-  @Input()
-  description: string = '';
-  @Input()
-  iconUrl: string = '';
+  course = input<Course>(INITIALIZE_COURSE);
+  onCourseSelected = output<Course>();
+
+  courseSelected() {
+    this.onCourseSelected.emit(this.course())
+  }
 }

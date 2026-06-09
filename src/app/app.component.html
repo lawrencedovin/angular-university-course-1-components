@@ -5,13 +5,12 @@
 
 </div>
 
-
 <div class="courses">
     @for (course of courses; track course.id) {
         <course-card 
-            [title]="course.title" 
-            [description]="course.description" 
-            [iconUrl]="course.iconUrl">
+            (onCourseSelected)="onCourseSelected($event)"
+            [course]="course"
+        >
         </course-card>
     }
 </div>

@@ -1,5 +1,15 @@
 import { Course } from "./app/model/course";
 
+export const INITIALIZE_COURSE: Course = 
+{
+    id: 0,
+    title: "",
+    iconUrl: '',
+    description: "",
+    category: '',
+    lessonsCount: 0
+};
+
 export const COURSES: Course[] = [
 
     {
