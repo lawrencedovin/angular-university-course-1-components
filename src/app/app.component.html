@@ -8,10 +8,13 @@
 <div class="courses">
     @for (course of courses; track course.id) {
         <course-card 
-            (onCourseSelected)="onCourseSelected($event)"
             [course]="course"
-        >
-        </course-card>
+            [index]="$index"
+            (onCourseSelected)="onCourseSelected($event)"
+        />
+    }
+    @empty {
+        <h1>No courses found!</h1>
     }
 </div>
 

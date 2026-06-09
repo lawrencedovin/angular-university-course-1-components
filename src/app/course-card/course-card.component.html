@@ -1,9 +1,14 @@
-<div class="course-card">
+@if(course()) {
+<div class="course-card" [class]="cardClasses">
         <div class="course-title">
-            {{ course().title }}
+            {{ currentCount() + ' ' + course().title }}
         </div>
-        <img width="300" alt="Angular Logo"
-             src="{{ course().iconUrl }}">
+        @if(isImageVisible()) {
+            <img [src]="course().iconUrl" width="300" alt="Angular Logo">
+        }
+        @else {
+            <p>No image available!</p>
+        }
         <div class="course-description">
            {{ course().description }}
         </div>
@@ -11,3 +16,4 @@
             View Course
         </button>
     </div>
+}

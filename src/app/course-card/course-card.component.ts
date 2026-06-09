@@ -1,5 +1,5 @@
-import { Component, input, output } from '@angular/core';
-import { Course } from '../model/course';
+import { Component, computed, input, OnInit, output } from '@angular/core';
+import { Category, Course } from '../model/course';
 import { INITIALIZE_COURSE } from '../../db-data';
 
 @Component({
@@ -8,11 +8,19 @@ import { INITIALIZE_COURSE } from '../../db-data';
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css',
 })
-export class CourseCardComponent {
+export class CourseCardComponent implements OnInit {
   course = input<Course>(INITIALIZE_COURSE);
+  index = input.required<number>();
   onCourseSelected = output<Course>();
+  isImageVisible = computed(() => this.course() && this.course().iconUrl);
+  currentCount = computed(() => this.index() + 1);
+  cardClasses: Record<string, boolean>;
+
+  ngOnInit(): void {
+    this.cardClasses = { 'beginner': this.course().category === Category.Beginner };
+  }
 
   courseSelected() {
-    this.onCourseSelected.emit(this.course())
+    this.onCourseSelected.emit(this.course());
   }
 }
