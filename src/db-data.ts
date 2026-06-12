@@ -14,7 +14,7 @@ export const COURSES: Course[] = [
 
     {
         id: 1,
-        title: "Angular Core Deep Dive",
+        title: "Angular core deep dive",
         iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png',
         description: "A detailed walk-through of the most important part of Angular - the Core and Common modules",
         category: Category.Intermediate,

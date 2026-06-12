@@ -15,9 +15,12 @@ export class CourseCardComponent implements OnInit {
   isImageVisible = computed(() => this.course() && this.course().iconUrl);
   currentCount = computed(() => this.index() + 1);
   cardClasses: Record<string, boolean>;
+  cardStyles: Record<string, string>;
+  Category = Category;
 
   ngOnInit(): void {
     this.cardClasses = { 'beginner': this.course().category === Category.Beginner };
+    this.cardStyles = {'text-decoration': 'underline'};
   }
 
   courseSelected() {
