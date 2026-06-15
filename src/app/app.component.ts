@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, viewChild } from '@angular/core';
 import {COURSES} from '../db-data';
 import { Course } from './model/course';
+import { CourseCardComponent } from './course-card/course-card.component';
 
 @Component({
     selector: 'app-root',
@@ -11,13 +12,10 @@ import { Course } from './model/course';
 export class AppComponent {
     courses = [...COURSES];
     course: Course;
-
-    startDate = new Date();
-    title = this.courses[0].title;
-    price = 9.99;
-    course1 = COURSES[0];
+    card = viewChild.required<CourseCardComponent>('childRef'); 
 
     onCourseSelected(course: Course) {
-        alert(`course: ${JSON.stringify(course)}`);
+        console.log(`course: ${JSON.stringify(course)}`);
+        console.log(this.card().course());
     }
  }
