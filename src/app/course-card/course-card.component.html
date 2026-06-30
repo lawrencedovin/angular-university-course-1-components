@@ -3,11 +3,12 @@
     <div class="course-title" [style]="cardStyles">
       {{ currentCount() + " " + course().title }}
     </div>
-    @if (isImageVisible()) {
+    <ng-content select="course-image"></ng-content>
+    <!-- @if (isImageVisible()) {
       <img [src]="course().iconUrl" width="300" alt="Angular Logo" />
     } @else {
       <p>No image available!</p>
-    }
+    } -->
     <div class="course-description">
       {{ course().description }}
     </div>

@@ -4,14 +4,18 @@
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
   />
 </div>
-<button (click)="onCoursesEdited()">Edit Courses</button>
 <div class="courses">
   @for (course of courses; track course.id) {
     <course-card
       [course]="course"
       [index]="$index"
       (onCourseSelected)="onCourseSelected($event)"
-    />
+    >
+    <course-image [imageUrl]="course.iconUrl"></course-image>
+    <!-- <div class="course-image" #courseImage>
+      <img [src]="course.iconUrl" width="300" alt="Angular Logo" />
+    </div> -->
+    </course-card>
   } @empty {
     <h1>No courses found!</h1>
   }
