@@ -11,7 +11,6 @@ export const INITIALIZE_COURSE: Course =
 };
 
 export const COURSES: Course[] = [
-
     {
         id: 1,
         title: "Angular core deep dive",

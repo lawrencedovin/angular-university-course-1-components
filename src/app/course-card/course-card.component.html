@@ -1,36 +1,33 @@
-@if(course()) {
-<div class="course-card" [class]="cardClasses">
-        <div class="course-title" [style]="cardStyles">
-            {{ currentCount() + ' ' + course().title }}
-        </div>
-        @if(isImageVisible()) {
-            <img [src]="course().iconUrl" width="300" alt="Angular Logo">
-        }
-        @else {
-            <p>No image available!</p>
-        }
-        <div class="course-description">
-           {{ course().description }}
-        </div>
-
-        <div class="course-category">
-            @switch(course().category) {
-                @case(Category.Beginner) {
-                    <div class="category">Beginner</div>
-                }
-                @case(Category.Intermediate) {
-                    <div class="category">Intermediate</div>
-                }
-                @case(Category.Advanced) {
-                    <div class="category">Advanced</div>
-                }
-                @default {
-                    <div class="category">Unknown</div>
-                }
-            }
-        </div>
-        <button (click)="courseSelected()">
-            View Course
-        </button>
+@if (course()) {
+  <div class="course-card" [class]="cardClasses">
+    <div class="course-title" [style]="cardStyles">
+      {{ currentCount() + " " + course().title }}
     </div>
+    @if (isImageVisible()) {
+      <img [src]="course().iconUrl" width="300" alt="Angular Logo" />
+    } @else {
+      <p>No image available!</p>
+    }
+    <div class="course-description">
+      {{ course().description }}
+    </div>
+
+    <div class="course-category">
+      @switch (course().category) {
+        @case (Category.Beginner) {
+          <div class="category">Beginner</div>
+        }
+        @case (Category.Intermediate) {
+          <div class="category">Intermediate</div>
+        }
+        @case (Category.Advanced) {
+          <div class="category">Advanced</div>
+        }
+        @default {
+          <div class="category">Unknown</div>
+        }
+      }
+    </div>
+    <button (click)="courseSelected()">View Course</button>
+  </div>
 }

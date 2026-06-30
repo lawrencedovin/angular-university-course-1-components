@@ -4,8 +4,9 @@
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
   />
 </div>
+<button (click)="onCoursesEdited()">Edit Courses</button>
 <div class="courses">
-  <!-- @for (course of courses; track course.id) {
+  @for (course of courses; track course.id) {
     <course-card
       [course]="course"
       [index]="$index"
@@ -13,16 +14,5 @@
     />
   } @empty {
     <h1>No courses found!</h1>
-  } -->
-    <course-card
-      [course]="courses[0]"
-      [index]="0"
-      #childRef
-      (onCourseSelected)="onCourseSelected($event)"
-    />
-    <course-card
-      [course]="courses[1]"
-      [index]="1"
-      (onCourseSelected)="onCourseSelected($event)"
-    />
+  }
 </div>
